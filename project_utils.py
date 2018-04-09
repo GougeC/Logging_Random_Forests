@@ -83,10 +83,12 @@ def run_experiment(X,y,num_trials,n_folds,parameters):
         
         results.extend(get_scores_n_fold(X,y,10, parameters))
         
-        if (x == num_trials/2) or (x == 0):
+        if (x == 0):
             print("{}/{} done in {} seconds".format((x+1) * n_folds, 
                                                     num_trials * n_folds, 
-                                                    time.time() -t1 ))
+                                                    round(time.time() -t1,3) ))
+    print("{} models done in {} minutes".format(num_trials * n_folds, round((time.time() -t1)/60,3) ))
+
     return results
 
 def train_gradient_boosters(n,X,y,n_estimators = 1000):
