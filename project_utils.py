@@ -31,9 +31,8 @@ def get_scores_n_fold(X,y,n_folds,parameters):
     forest = RandomForestRegressor(n_estimators= parameters['n_estimators'],
                                    max_depth= parameters['max_depth'],
                                    n_jobs= -1, 
-                                   oob_score= True, 
                                    max_features = parameters['max_features'],
-                                   bootstrap= True, 
+                                   bootstrap= parameters['bootstrap'], 
                                    min_samples_leaf = parameters['min_samples_leaf'],
                                    min_samples_split = parameters['min_samples_split'])
     
